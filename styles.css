@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #000000;
+    color: #fff; /* Texto en blanco */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Fondo desenfocado */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://wallpaperaccess.com/full/683069.jpg'), 
+                      linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)); /* Imagen de fondo con opacidad */
+    background-size: cover;
+    background-blend-mode: overlay;
+    filter: blur(8px); /* Desenfoque en el fondo */
+    z-index: -1; /* Mover el fondo detrás del contenido */
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo semi-transparente */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    border: 2px solid #880e4f; /* Borde con tono oscuro rojo */
+    z-index: 1; /* Asegura que el contenido esté por encima del fondo */
+    padding: 20px;
+    text-align: center;
+}
+
+.section {
+    padding: 20px;
+    border-bottom: 2px solid #880e4f;
+}
+
+.section:last-child {
+    border-bottom: none;
+}
+
+.invitation h1 {
+    color: #fff; /* Título en blanco */
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+.invitation p {
+    margin: 10px 0;
+    font-size: 1rem;
+    color: #fff; /* Texto en blanco */
+}
+
+.wishlist h2 {
+    font-size: 1.8rem;
+    color: #ff1744; /* Rojo vibrante para el texto */
+}
+
+.wishlist-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.item {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.item img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #e57373;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.item img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.item p {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #ff80ab;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover p {
+    color: #ff5252;
+}
+
+/* Estilos para centrar el mapa */
+.map-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.map-box p {
+    margin-bottom: 10px;
+}
+
+iframe {
+    border: 2px solid #000; /* Borde para resaltar el mapa */
+    border-radius: 8px; /* Bordes redondeados */
+}
+
+/* Responsivo para pantallas pequeñas */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+}

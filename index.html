@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fiesta de cumple</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Cinzel Decorative', cursive;
+            background-color: #180F10;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://wallpaperaccess.com/full/683069.jpg'), 
+                              linear-gradient(rgba(107, 6, 42, 0.7), rgba(120, 0, 2, 0.7));
+            background-size: cover;
+            background-blend-mode: overlay;
+            filter: blur(8px);
+            z-index: -1;
+        }
+        .gif-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+            object-fit: cover;
+            filter: blur(8px);
+        }
+        .container {
+            width: 90%;
+            max-width: 600px;
+            height: 85vh;
+            background-color: black;
+            box-shadow: 0 4px 15px rgba(196, 0, 32, 0.3);
+            border-radius: 12px;
+            border: 2px solid #C40020;
+            z-index: 1;
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+        }
+        .scrollable-section {
+            flex: 1;
+            overflow-y: auto;
+            margin: 10px 0;
+            padding: 0 10px;
+        }
+        .scrollable-section::-webkit-scrollbar {
+            width: 8px;
+        }
+        .scrollable-section::-webkit-scrollbar-track {
+            background: #180F10;
+        }
+        .scrollable-section::-webkit-scrollbar-thumb {
+            background: #5C587F;
+            border-radius: 4px;
+        }
+        
+       h1, h2 {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    background: linear-gradient(to right, #800020, #FFD700); /* Degradado de vino a dorado */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 4px rgba(24, 15, 16, 0.5);
+    animation: glow 3.5s ease-in-out infinite alternate;
+}
+          .small-gif {
+    width: 250px;
+    height: 200px;
+
+}
+        p {
+            margin: 8px 0;
+            font-size: 1.1rem;
+            color: #fff;
+        }
+        .map-box {
+            margin: 15px 0;
+        }
+        iframe {
+            border: 2px solid #6B062A;
+            border-radius: 8px;
+            width: 100%;
+            height: 200px;
+        }
+         .gif-alicia {
+            display: flex;
+            justify-content: flex-start; /* Cambia a flex-start para alinear a la izquierda */
+            align-items: center;
+            height: 100vh; /* Ajusta la altura si lo necesitas */
+            padding-left: 30px; /* Ajusta el valor según sea necesario para moverlo a la izquierda */
+        }
+        .wishlist-items {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .item {
+            text-align: center;
+            margin: 10px;
+            width: calc(33.33% - 20px);
+            background-color: rgba(92, 88, 127, 0.1);
+            border-radius: 8px;
+            padding: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(196, 0, 32, 0.3);
+        }
+        .item img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #6B062A;
+            transition: transform 0.3s ease;
+        }
+.container {
+    position: relative;
+    width: 600px;  /* Ajusta según el tamaño de tu contenedor */
+    height: 600px;
+    border: 1px solid black; /* Para visualizar los límites del contenedor */
+}
+
+.gif-corner img {
+    position: absolute;
+    border-radius: 8px;
+}
+
+/* Primer GIF */
+.gif-corner img:nth-child(1) {
+    width: 200px;
+    height: 200px;
+    bottom: -20px;
+    left: 500px;
+}
+/* Segundo GIF */
+.gif-corner img:nth-child(2) {
+    width: 200px; /* Tamaño diferente */
+    height: 200px;
+    bottom: -10px; /* Desplazamiento diferente */
+    left: -67px; /* Desplazado más a la derecha */
+}
+.gif-corner img:nth-child(3) {
+    width: 90px; /* Tamaño diferente */
+    height: 90px;
+    bottom: 555px; /* Desplazamiento diferente */
+    left: 500px; /* Desplazado más a la derecha */
+}
+
+
+
+
+
+
+        .item:hover img {
+            transform: scale(1.05);
+        }
+        .item p {
+            margin-top: 8px;
+            font-size: 0.9rem;
+            color: #5C587F;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        a:hover p {
+            color: #C40020;
+        }
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+                height: 90vh;
+            }
+            .item {
+                width: calc(50% - 20px);
+            }
+        }
+       @keyframes glow {
+    0% {
+        text-shadow: 2px 2px 4px rgba(24, 15, 16, 0.5);
+    }
+    100% {
+        text-shadow: 0 0 20px rgba(255, 215, 0, 1), 0 0 30px rgba(255, 215, 0, 1);
+    }
+   
+
+}
+    </style>
+</head>
+<body>
+    <img class="gif-background" src="gi.gif">
+    <div class="container">
+        <div class="gif-corner">
+    
+    <img src="img\gif\r.png">
+    <img src="img\gif\es.png">
+    <img src="img\gif\s.png">
+    
+</div>
+
+        <h1>America Daniela</h1>
+        <div class="scrollable-section">
+            <section class="invitation">
+                <p>Te invitamo a celebrar </p>
+                <h2>Mis 18 años</h2>
+                <p>Fecha: 12 de octubre del 2024</p>
+                <p>Hora: 15:00</p>
+                <h2>Ubicación</h2>
+                <div class="map-box">
+                    <p>El Mirador, calle Miguel Hidalgo. Frente a la tienda "Los Abuelos"</p>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d120954.44846240661!2d-99.32803630828856!3d18.67177942626937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ce7f8a72504653%3A0x76d39c14f1f4d13c!2sPOZOLERIA%20Y%20ANTOJITOS%20ROBERTA!5e0!3m2!1ses-419!2smx!4v1728016596960!5m2!1ses-419!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </section>
+            <section class="wishlist">
+                <p>
+    ¿No sabes que regalarme? <br><br> Aquí hay algunas opciones
+</p>
+
+
+                <div class="gif-container">
+        <img src="img/gif/alicia.gif" alt="Alicia">
+    </div>
+                <br>
+                
+                <br>
+                <br>
+                <h2>Lista de Deseos</h2>
+                <div class="wishlist-items">
+                    <div class="item">
+                        <a href="https://www.mercadolibre.com.mx/4piezas-juego-toalla-banolana-coral-suave-de-alta-densidad-color-rosaazul-juego-toalla-bano/p/MLM28749626?pdp_filters=item_id:MLM1995594245#wid=MLM1995594245&sid=search&is_advertising=true&searchVariation=MLM28749626&position=1&search_layout=grid&type=pad&tracking_id=4b6c48fd-dcb7-413c-8d70-f360818f145c&is_advertising=true&ad_domain=VQCATCORE_LST&ad_position=1&ad_click_id=NGNhOGJhNDgtMzE4NC00M2M1LTg1YWQtNTEyYjY5ZTVkMDNh">
+                            <img src="img/toalla.jpg" alt="toalla">
+                            <p>Toalla</p>
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="https://www.mercadolibre.com.mx/maybelline-lifter-gloss-brillo-labial-hidratante-con-acido-hialuronico-lifter-gloss-tono-009-topaz-54ml/p/MLM28966454?product_trigger_id=MLM28254071&quantity=1">
+                            <img src="img/labial.jpg" alt="Laptop">
+                            <p>Maybelline Gloss</p>
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="https://www.soriana.com/desodorante-aclarante-nivea-tono-natural-classic-touch-stick-50-g/11309232.html">
+                            <img src="img/desodorante.png" alt="Teléfono">
+                            <p>Desodorante</p>
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="https://www.mercadolibre.com.mx/kit-micelar-garnier-bifasica-400ml-pads-desmaquillantes/p/MLM24524004#wid%3DMLM2334720670%26sid%3Dsearch%26searchVariation%3DMLM24524004%26position%3D12%26search_layout%3Dgrid%26type%3Dproduct%26tracking_id%3Dfdb9b81c-545f-4e47-afb4-fd50a4e6a8d7">
+                            <img src="img/kit_agua_micelar.jpg" alt="Reloj">
+                            <p>Kit agua micelar</p>
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="https://www.soriana.com/gel-limpiador-facial-neutrogena-oil-free-toronja-acido-salicilico-177-ml/2190274.html">
+                            <img src="img/gel_limpiador.png" alt="Gafas de Sol">
+                            <p>Gel limpiador</p>
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="https://www.farmaciasguadalajara.com/departamento/higiene-y-belleza/cuidado-facial/serum-booster-garnier-skin-active-express-aclara-anti-imperfecciones-30-ml-1397486">
+                            <img src="img/serum.png" >
+                            <p>Sérum Garnier</p>
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="https://www.soriana.com/mascarilla-para-cabello-loreal-paris-elvive-hidra-hialuronico-300-g/11565813.html">
+                            <img src="img/masc.png">
+                            <p>Mascarilla para cabello </p>
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="https://www.mercadolibre.com.mx/iluminador-colorete-maybelline-new-york-sunkisser-liquido/p/MLM38098735#wid%3DMLM2109438697%26sid%3Dsearch%26searchVariation%3DMLM38098735%26position%3D15%26search_layout%3Dgrid%26type%3Dproduct%26tracking_id%3D1bcbf5b4-9faf-41a6-89be-2ebeaebeee9f">
+                            <img src="img/blush.jpg">
+                            <p>Iluminador</p>
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="https://www.farmaciasguadalajara.com/departamento/higiene-y-belleza/cuidado-facial/agua-micelar-garnier-skinactive-acido-salicilico-para-piel-con-tendencia-al-acne-400-ml-1399764">
+                            <img src="img/micelar.png">
+                            <p>Agua Micelar</p>
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="https://www.soriana.com/shampoo-garnier-fructis-hair-food-sandia-revitalizante-300-ml/11580667.html">
+                            <img src="img/sg.png" >
+                            <p>Shampoo Garnier Fructis</p>
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="https://www.mercadolibre.com.mx/elf-multistick-monochromatic-multi-stick-barra-sparking-rose-unidad-1/p/MLM27575368?product_trigger_id=MLM27407081&quantity=1">
+                            <img src="img/elf.png">
+                            <p>Multistick</p>
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="https://www.farmaciasguadalajara.com/departamento/higiene-y-belleza/cuidado-facial/gel-matificante-garnier-skin-active-express-aclara-anti-imperfecciones-50-ml-1422839">
+                            <img src="img/gg.png">
+                            <p>Hidratante Garnier</p>
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="https://www.farmaciasguadalajara.com/departamento/higiene-y-belleza/cuidado-facial/gel-hidratante-ponds-fruity-hydra-fresh-sandia-110-gr-1331248">
+                            <img src="img/pg.png">
+                            <p>Hidratante Ponds</p>
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="https://www.soriana.com/tratamiento-nocturno-loreal-paris-elvive-hidra-hialuronico-200-g/11671454.html">
+                            <img src="img/em.png">
+                            <p> Mascarilla</p>
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="https://www.mercadolibre.com.mx/set-pinturas-acrilicas-politec-6pz-100ml-colores-primarios/p/MLM26582057?pdp_filters=item_id:MLM2805637774#wid=MLM2805637774&sid=search&is_advertising=true&searchVariation=MLM26582057&position=3&search_layout=grid&type=pad&tracking_id=213486d6-58a4-4f35-a574-b6d71c27fd43&is_advertising=true&ad_domain=VQCATCORE_LST&ad_position=3&ad_click_id=MmFhZmJjODYtMDc4ZC00ZjM5LWIxOTUtYzBkMjc1NDMwMzg0">
+                            <img src="img/pintura.png">
+                            <p>Pintura Politec</p>
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="https://articulo.mercadolibre.com.mx/MLM-1983574612-12-pares-de-calcetines-cortos-transpirables-negros-_JM#polycard_client=recommendations_vip-pads-up&reco_backend=vip_pads_up_ranker_retrieval_system_odin_marketplace&reco_client=vip-pads-up&reco_item_pos=0&reco_backend_type=low_level&reco_id=00ee6565-7694-4312-9de2-984b799094a7&is_advertising=true&ad_domain=VIPDESKTOP_UP&ad_position=1&ad_click_id=OGZlYTBlZGItZmYxYy00NjZmLWJmNzgtNDgxZjYzODcwODJk">
+                            <img src="img/cal.png">
+                            <p>Calcetines Negros</p>
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="https://articulo.mercadolibre.com.mx/MLM-1385341606-gama-de-12-colores-gel-esmalte-semi-permanente-obp-_JM?attributes=COLOR_SECONDARY_COLOR%3AT2JwLTEy&quantity=1">
+                            <img src="img/esmal.png">
+                            <p>Esmaltes para uñas</p>
+                        </a>
+                    </div>
+                </div>
+            </section>
+            <br>
+            <h2>¡Te esperamos, no faltes!</h2>
+           <img src="img\gif\cone.gif" class="small-gif">
+
+        </div>
+    </div>
+
+    <audio autoplay loop>
+        <source src="musica/gatos.mp3" type="audio/mpeg">
+        Tu navegador no soporta el audio.
+    </audio>
+</body>
+</html>
+
